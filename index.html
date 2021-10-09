@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Display a map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@1.14.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        //var bounds = [[-31.57293,35.67791],[-23.718139999999999,40.07569999999998]];
+        // 13.000360654958342,52.29188494426961,13.813182965630787,52.71218794157272
+        var bounds = [[13.000360654958342,52.29188494426961],[13.813182965630787,52.71218794157272]];
+        // var map = new maplibregl.Map({
+        //     container: 'map', // container id
+        //     style: "osm_liberty.json", // style URL
+        //     zoom: 9, // starting zoom
+        //     center: [ (bounds[0][0] + bounds[1][0]) / 2, (bounds[0][1] + bounds[1][1]) / 2],
+        //     zoom: 9, 
+        //     minZoom: 5,
+        //     maxBounds: bounds 
+        // });
+
+        var map = new maplibregl.Map({
+            container: 'map',
+            style: 'osm_liberty_culturemap.json',
+            center: [ (bounds[0][0] + bounds[1][0]) / 2, (bounds[0][1] + bounds[1][1]) / 2],
+            zoom: 11,
+            maxBounds: bounds
+        });
+
+        map.addControl(new maplibregl.NavigationControl());
+    </script>
+
+</body>
+
+</html>

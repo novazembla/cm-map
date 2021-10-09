@@ -1,0 +1,6 @@
+data/*
+!data/.keep
+bin/*
+!bin/.keep
+berlin/*
+*.log
