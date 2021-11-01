@@ -9,31 +9,16 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "berlin/metadata.json"
-    },
-    "natural_earth_shaded_relief": {
-      "maxzoom": 6,
-      "tileSize": 256,
-      "tiles": [
-        "https://klokantech.github.io/naturalearthtiles/tiles/natural_earth_2_shaded_relief.raster/{z}/{x}/{y}.png"
-      ],
-      "type": "raster"
+      "url": "https://vincentvanuffelen.com/lichtenberg/berlin/metadata.json"
     }
   },
-  "sprite": "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
-  "glyphs": "fonts/{fontstack}/{range}.pbf",
+  "sprite": "https://vincentvanuffelen.com/lichtenberg/sprites/berlin",
+  "glyphs": "https://vincentvanuffelen.com/lichtenberg/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
       "type": "background",
       "paint": {"background-color": "#dddddd"}
-    },
-    {
-      "id": "natural_earth",
-      "type": "raster",
-      "source": "natural_earth_shaded_relief",
-      "maxzoom": 6,
-      "paint": {"raster-opacity": {"base": 1.5, "stops": [[0, 0.6], [6, 0.1]]}}
     },
     {
       "id": "park",
@@ -1367,7 +1352,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 16,
-      "filter": ["all", ["==", "$type", "Point"], [">=", "rank", 20]],
+      "filter": ["all", ["==", "$type", "Point"], [">=", "rank", 20], ["!=", "class", ""]],
       "layout": {
         "icon-image": "{class}_11",
         "text-anchor": "top",
@@ -1423,7 +1408,7 @@
         ["==", "$type", "Point"],
         [">=", "rank", 1],
         ["<", "rank", 13],
-        ["in", "class", "railway_light", "railway_metro", "rocket", "railway"]
+        ["in", "class", "railway_light", "railway_metro", "sbahn", "railway"]
       ],
       "layout": {
         "icon-image": "{class}_11",

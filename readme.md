@@ -44,6 +44,15 @@ https://maputnik.github.io/editor/#17.07/52.527671/13.415746
 # OSM Liberty Style as base style
 https://github.com/maputnik/osm-liberty, https://maputnik.github.io/osm-liberty/
 
+# Sprites 
+Follow the osm-liberty explanation, all currently used files/svgs are in the subfolder sprites
+But use npm install -g @beyondtracks/spritezero-cli to install spritezero-cli
+
+```
+spritezero berlin svgs/
+spritezero --retina berlin@2x svgs/
+```
+
 # Build command
 
 First configure `config/config-berlin.json` to have the correct tile url

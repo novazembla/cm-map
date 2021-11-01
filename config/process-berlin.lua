@@ -83,7 +83,8 @@ function node_function(node)
 
 	-- https://wiki.openstreetmap.org/wiki/Public_transport
 	if public_transport ~= "" then
-
+		local name = node:Find("name")
+		
 		if public_transport == "entrance" or railway == "subway_entrance" then
 			node:LayerAsCentroid("poi")
 			SetNameAttributes(node)
@@ -91,34 +92,38 @@ function node_function(node)
 			node:Attribute("class", "entrance")
 			return
 		elseif public_transport == "station" then
-			
+		
 			if subway == "yes" then
 				node:LayerAsCentroid("poi")
 				SetNameAttributes(node)
 				node:AttributeNumeric("rank", 3)
-				node:Attribute("class", "railway_metro")
+				if name ~= "" and string.starts(name, "S ") then
+					node:Attribute("class", "sbahn")
+				else
+					node:Attribute("class", "railway_metro")
+				end
 				return
 
 			elseif train == "yes" or railway == "station" or railway == "halt" then 
 				node:LayerAsCentroid("poi")
-				local name = node:Find("name")
 				if name ~= "" and string.starts(name, "S ") then
 					node:LayerAsCentroid("poi")
 					SetNameAttributes(node)
 					node:AttributeNumeric("rank", 3)
-					node:Attribute("class", "rocket") --xxx
+					node:Attribute("class", "sbahn")
+					print("xxx 2", name)
 					return
 				else
 					
 					SetNameAttributes(node)
 					node:AttributeNumeric("rank", 3)
-					node:Attribute("class", "railway") --xxx
+					node:Attribute("class", "railway")
 					return
 				end				
 			else
 				-- TODO: ist there anything else to treat? 
-				-- print("ooops station:", public_transport, "HIGH", node:Find("highway"), "SUB", node:Find("subway"), "TRAIN", node:Find("train"), "BUS", node:Find("bus"), "TRAM", node:Find("tram"), 
-				-- "RAILWAY", node:Find("railway"), node:Find("name"))
+				print("ooops station:", public_transport, "HIGH", node:Find("highway"), "SUB", node:Find("subway"), "TRAIN", node:Find("train"), "BUS", node:Find("bus"), "TRAM", node:Find("tram"), 
+				"RAILWAY", node:Find("railway"), node:Find("name"))
 			end
 			return
 		elseif public_transport == "stop_position" then
@@ -255,12 +260,12 @@ landcoverKeys   = { wood="wood", forest="wood",
 
 poiTags = { 
 	aerialway = Set { "station" },
-	amenity = Set { "arts_centre", "bicycle_parking", "bicycle_rental", "bus_station", "college", "community_centre", "courthouse", "ferry_terminal", "fire_station",  "fuel", "grave_yard", "hospital", "library",  "motorcycle_parking", "parking",  "place_of_worship", "police", "post_box", "public_building", "recycling", "school", "taxi", "telephone", "theatre", "toilets", "townhall", "university", "waste_basket" },
+	amenity = Set { "arts_centre", "bicycle_parking", "bicycle_rental", "bus_station", "college", "community_centre", "courthouse", "ferry_terminal", "fire_station",  "fuel", "grave_yard", "hospital", "library",  "place_of_worship", "police", "post_box", "public_building", "recycling", "school", "taxi", "telephone", "theatre", "toilets", "townhall", "university", "waste_basket" },
 	barrier = Set { "bollard", "border_control", "cycle_barrier", "gate", "lift_gate", "sally_port", "stile", "toll_booth" },
 	building = Set { "dormitory" },
 	highway = Set { "bus_stop" },
 	historic = Set { "monument", "castle", "ruins" },
-	landuse = Set { "basin", "brownfield", "cemetery", "reservoir", "winter_sports" },
+	landuse = Set { "basin", "cemetery", "reservoir", "winter_sports" },
 	leisure = Set { "dog_park", "garden", "golf_course", "hackerspace", "marina","park","playground" },
 	railway = Set { "halt", "station", "subway_entrance", "train_station_entrance", "tram_stop" },
 	tourism = Set { "alpine_hut", "aquarium", "artwork", "attraction", "bed_and_breakfast", "camp_site", "caravan_site", "chalet", "gallery", "guest_house", "hostel", "hotel", "information", "motel", "museum", "picnic_site", "theme_park", "viewpoint", "zoo" },
