@@ -1359,7 +1359,7 @@
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 0.6],
+        "text-offset": [0, 2],
         "text-size": 12
       },
       "paint": {
@@ -1387,7 +1387,7 @@
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 0.6],
+        "text-offset": [0, 2],
         "text-size": 12
       },
       "paint": {
@@ -1416,7 +1416,7 @@
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 0.6],
+        "text-offset": [0, 2],
         "text-size": 12
       },
       "paint": {
@@ -1444,7 +1444,7 @@
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 0.6],
+        "text-offset": [0, 2],
         "text-size": 12
       },
       "paint": {
@@ -1466,7 +1466,7 @@
         "text-field": "{name_en}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
-        "text-offset": [0.9, 0],
+        "text-offset": [2, 0],
         "text-size": 12
       },
       "paint": {
@@ -1589,7 +1589,7 @@
         "icon-image": {"base": 1, "stops": [[0, "dot_9"], [8, ""]]},
         "text-anchor": "bottom",
         "text-field": "{name_en}",
-        "text-font": ["Noto Sans Medium"],
+        "text-font": ["Berlin Type Regular"],
         "text-max-width": 8,
         "text-offset": [0, 0],
         "text-size": {"base": 1.2, "stops": [[7, 14], [11, 24]]},

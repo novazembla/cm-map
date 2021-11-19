@@ -44,9 +44,21 @@ https://maputnik.github.io/editor/#17.07/52.527671/13.415746
 # OSM Liberty Style as base style
 https://github.com/maputnik/osm-liberty, https://maputnik.github.io/osm-liberty/
 
-# Sprites 
-Follow the osm-liberty explanation, all currently used files/svgs are in the subfolder sprites
+# Icons and sprites Sprites 
+The Icon SVGs will be converted by spritezero to one .png file. The used icons are a combination of svg styles and configured with maki,
+A few icons provided by OSM Liberty in the `svgs_not_in_iconset` folder and a few BVG related icons in the `bvg` folder. 
+
+To create the sprites copy all three folders in one and then run the spritezero command below (in the `sprites` folder). 
+
 But use npm install -g @beyondtracks/spritezero-cli to install spritezero-cli
+
+*Please Note*
+We could not get spritezero running on node 16 so we had to use node 14 using `nvm`
+
+```
+nvm use 14
+npm install -g @beyondtracks/spritezero-cli
+```
 
 ```
 spritezero berlin svgs/

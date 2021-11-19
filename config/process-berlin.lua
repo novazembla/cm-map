@@ -40,7 +40,7 @@ end
 
 -- Process node tags
 -- Needed to add highway for "bus_station"
-node_keys = { "highway", "railway", "subway", "public_transport", "tourism", "place","natural", "addr:housenumber", "aeroway" }
+node_keys = { "highway", "railway", "subway", "public_transport", "tourism", "place", "natural", "addr:housenumber", "aeroway" }
 function node_function(node)
 	-- local operator = node:Find("operator");
 	-- local route = node:Find("route");
@@ -65,6 +65,7 @@ function node_function(node)
 	local shop = node:Find("shop")
 	local craft = node:Find("craft")
 	
+
 	if amenity == "ferry_terminal" then
 		node:LayerAsCentroid("poi")
 		SetNameAttributes(node)
@@ -111,7 +112,6 @@ function node_function(node)
 					SetNameAttributes(node)
 					node:AttributeNumeric("rank", 3)
 					node:Attribute("class", "sbahn")
-					print("xxx 2", name)
 					return
 				else
 					
@@ -209,6 +209,8 @@ function node_function(node)
 		node:Layer("place", false)
 		node:Attribute("class", place)
 		node:MinZoom(mz)
+
+		
 		if rank then node:AttributeNumeric("rank", rank) end
 		if place=="country" then node:Attribute("iso_a2", node:Find("ISO3166-1:alpha2")) end
 		SetNameAttributes(node)
@@ -344,28 +346,10 @@ function way_function(way)
 	local write_name = false
 	local construction = way:Find("construction")
 
-
-	-- local operator = way:Find("operator")
-	-- local route = way:Find("route")
-	-- local network = way:Find("network")
-	-- local public_transport = way:Find("public_transport")
-
 	-- -- https://wiki.openstreetmap.org/wiki/Public_transport
 	-- if public_transport ~= "" then
 	-- 	print("public_transport:", public_transport, "HIGH", way:Find("highway"), "SUB", way:Find("subway"), "TRAIN", way:Find("train"), "BUS", way:Find("bus"), "TRAM", way:Find("tram"), 
 	-- 	"RAILWAY", way:Find("railway"), way:Find("name"))
-	-- end
-
-	-- if operator ~= "" then
-	-- 	print("Operator:", railway, operator, route, network)
- 	-- end
-
-	-- if network ~= "" then
-	-- 	print("network:", railway, operator, route, network)
- 	-- end
-
-	-- if route ~= "" then
- 	-- 	print("route:", railway, operator, route, network)
 	-- end
 
 	-- Miscellaneous preprocessing
@@ -540,7 +524,8 @@ function way_function(way)
 	 	way:LayerAsCentroid("aerodrome_label")
 	 	SetNameAttributes(way)
 	 	way:Attribute("iata", way:Find("iata"))
-  		SetEleAttributes(way)
+  	
+		SetEleAttributes(way)
  	 	way:Attribute("icao", way:Find("icao"))
 
  	 	local aerodrome = way:Find(aeroway)
@@ -548,6 +533,7 @@ function way_function(way)
  	 	if aerodromeValues[aerodrome] then class = aerodrome else class = "other" end
  	 	way:Attribute("class", class)
 	end
+
 
 	-- Set 'waterway' and associated
 	if waterwayClasses[waterway] and not isClosed then
@@ -589,16 +575,20 @@ function way_function(way)
 		way:Attribute("housenumber", housenumber)
 	end
 
+
+	
+	
 	-- Set 'water'
 	if natural=="water" or natural=="bay" or leisure=="swimming_pool" or landuse=="reservoir" or landuse=="basin" or waterClasses[waterway] then
 		if way:Find("covered")=="yes" or not isClosed then return end
-		local class="lake"; if natural=="bay" then class="ocean" elseif waterway~="" then class="river" end
+		local class="lake"; 
+		
+		if natural=="bay" then class="ocean" elseif waterway~="" then class="river" elseif landuse=="reservoir" or landuse=="basin" then class="other" end
 		if class=="lake" and way:Find("wikidata")=="Q192770" then return end
 		if class=="ocean" and isClosed and (way:AreaIntersecting("ocean")/way:Area() > 0.98) then return end
 		way:Layer("water",true)
 		SetMinZoomByArea(way)
 		way:Attribute("class",class)
-
 		if way:Find("intermittent")=="yes" then way:Attribute("intermittent",1) end
 		-- we only want to show the names of actual lakes not every man-made basin that probably doesn't even have a name other than "basin"
 		-- examples for which we don't want to show a name:
@@ -606,11 +596,11 @@ function way_function(way)
 		--  https://www.openstreetmap.org/way/27201902
 		--  https://www.openstreetmap.org/way/25309134
 		--  https://www.openstreetmap.org/way/24579306
+
 		if way:Holds("name") and natural=="water" and water ~= "basin" and water ~= "wastewater" then
 			way:LayerAsCentroid("water_name_detail")
 			SetNameAttributes(way)
 			SetMinZoomByArea(way)
-			way:Attribute("class", class)
 		end
 
 		return -- in case we get any landuse processing
