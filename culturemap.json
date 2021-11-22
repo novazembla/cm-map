@@ -1,8 +1,8 @@
 {
   "version": 8,
-  "name": "OSM Liberty",
+  "name": "Culturemap",
   "metadata": {
-    "maputnik:license": "https://github.com/maputnik/osm-liberty/blob/gh-pages/LICENSE.md",
+    "maputnik:license": "https://map.bzl.hs-example.de/LICENSE.md",
     "maputnik:renderer": "mbgljs",
     "openmaptiles:version": "3.x"
   },
@@ -18,7 +18,7 @@
     {
       "id": "background",
       "type": "background",
-      "paint": {"background-color": "#dddddd"}
+      "paint": {"background-color": "rgba(252, 252, 252, 1)"}
     },
     {
       "id": "park",
@@ -26,9 +26,9 @@
       "source": "openmaptiles",
       "source-layer": "park",
       "paint": {
-        "fill-color": "#d8e8c8",
+        "fill-color": "rgba(215, 238, 233, 1)",
         "fill-opacity": 0.7,
-        "fill-outline-color": "rgba(95, 208, 100, 1)"
+        "fill-outline-color": "rgba(215, 238, 233, 1)"
       }
     },
     {
@@ -66,7 +66,7 @@
       "filter": ["all", ["==", "class", "wood"]],
       "paint": {
         "fill-antialias": false,
-        "fill-color": "hsla(98, 61%, 72%, 0.7)",
+        "fill-color": "rgba(215, 238, 233, 1)",
         "fill-opacity": 0.4
       }
     },
@@ -75,10 +75,10 @@
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
-      "filter": ["all", ["==", "class", "grass"]],
+      "filter": ["all", ["in", "class", "grass"]],
       "paint": {
         "fill-antialias": false,
-        "fill-color": "rgba(176, 213, 154, 1)",
+        "fill-color": "rgba(215, 238, 233, 1)",
         "fill-opacity": 0.3
       }
     },
@@ -100,7 +100,7 @@
       "source": "openmaptiles",
       "source-layer": "landuse",
       "filter": ["==", "class", "cemetery"],
-      "paint": {"fill-color": "hsl(75, 37%, 81%)"}
+      "paint": {"fill-color": "rgba(215, 238, 233, 1)"}
     },
     {
       "id": "landuse_hospital",
@@ -108,7 +108,7 @@
       "source": "openmaptiles",
       "source-layer": "landuse",
       "filter": ["==", "class", "hospital"],
-      "paint": {"fill-color": "#fde"}
+      "paint": {"fill-color": "rgba(248, 249, 250, 1)"}
     },
     {
       "id": "landuse_school",
@@ -116,7 +116,7 @@
       "source": "openmaptiles",
       "source-layer": "landuse",
       "filter": ["==", "class", "school"],
-      "paint": {"fill-color": "rgb(236,238,204)"}
+      "paint": {"fill-color": "rgba(215, 238, 233, 1)"}
     },
     {
       "id": "waterway_tunnel",
@@ -140,7 +140,7 @@
       "filter": ["all", ["==", "class", "river"], ["!=", "brunnel", "tunnel"]],
       "layout": {"line-cap": "round"},
       "paint": {
-        "line-color": "#a0c8f0",
+        "line-color": "rgba(75, 78, 198, 0.5)",
         "line-width": {"base": 1.2, "stops": [[11, 0.5], [20, 6]]}
       }
     },
@@ -152,7 +152,7 @@
       "filter": ["all", ["!=", "class", "river"], ["!=", "brunnel", "tunnel"]],
       "layout": {"line-cap": "round"},
       "paint": {
-        "line-color": "#a0c8f0",
+        "line-color": "rgba(75, 78, 198, 0.5)",
         "line-width": {"base": 1.3, "stops": [[13, 0.5], [20, 6]]}
       }
     },
@@ -162,7 +162,7 @@
       "source": "openmaptiles",
       "source-layer": "water",
       "filter": ["all", ["!=", "brunnel", "tunnel"]],
-      "paint": {"fill-color": "rgb(158,189,255)"}
+      "paint": {"fill-color": "rgba(174, 222, 247, 1)"}
     },
     {
       "id": "landcover_sand",
@@ -170,7 +170,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "filter": ["all", ["==", "class", "sand"]],
-      "paint": {"fill-color": "rgba(247, 239, 195, 1)"}
+      "paint": {"fill-color": "rgba(255, 243, 218, 1)"}
     },
     {
       "id": "aeroway_fill",
@@ -226,7 +226,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.6)",
         "line-dasharray": [0.5, 0.25],
         "line-width": {
           "base": 1.2,
@@ -246,7 +246,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#cfcdca",
+        "line-color": "rgba(102, 13, 54, 0.3)",
         "line-dasharray": [0.5, 0.25],
         "line-width": {"base": 1.2, "stops": [[15, 1], [16, 4], [20, 11]]}
       }
@@ -259,7 +259,7 @@
       "filter": ["all", ["==", "ramp", 1], ["==", "brunnel", "tunnel"]],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.17)",
         "line-width": {
           "base": 1.2,
           "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
@@ -278,7 +278,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#cfcdca",
+        "line-color": "rgba(102, 13, 54, 0.6)",
         "line-opacity": {"stops": [[12, 0], [12.5, 1]]},
         "line-width": {
           "base": 1.2,
@@ -298,7 +298,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.3)",
         "line-width": {"base": 1.2, "stops": [[8, 1.5], [20, 17]]}
       }
     },
@@ -314,7 +314,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.3)",
         "line-width": {
           "base": 1.2,
           "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
@@ -334,7 +334,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.6)",
         "line-dasharray": [0.5, 0.25],
         "line-width": {
           "base": 1.2,
@@ -372,7 +372,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fc8",
+        "line-color": "#fff",
         "line-width": {
           "base": 1.2,
           "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
@@ -403,7 +403,7 @@
       "filter": ["all", ["==", "ramp", 1], ["==", "brunnel", "tunnel"]],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fff4c6",
+        "line-color": "#fff",
         "line-width": {
           "base": 1.2,
           "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
@@ -434,7 +434,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fff4c6",
+        "line-color": "#fff",
         "line-width": {"base": 1.2, "stops": [[6.5, 0], [7, 0.5], [20, 10]]}
       }
     },
@@ -450,7 +450,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fff4c6",
+        "line-color": "#fff",
         "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
       }
     },
@@ -467,7 +467,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#ffdaa6",
+        "line-color": "#fff",
         "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
       }
     },
@@ -547,7 +547,7 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.6)",
         "line-width": {
           "base": 1.2,
           "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
@@ -566,8 +566,8 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": "#cfcdca",
-        "line-width": {"base": 1.2, "stops": [[15, 1], [16, 4], [20, 11]]}
+        "line-color": "rgba(102, 13, 54, 0.1)",
+        "line-width": {"base": 1.2, "stops": [[15, 0.5], [16, 3], [20, 11]]}
       }
     },
     {
@@ -584,7 +584,7 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.17)",
         "line-width": {
           "base": 1.2,
           "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
@@ -605,14 +605,17 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color":  {
+        "line-color": {
           "base": 1,
-          "stops": [[1, "hsla(0, 0%, 18.33%, 0.9)"], [14, "hsla(0, 0%, 80%, 0.9)"]]
+          "stops": [
+            [1, "rgba(247, 248, 249, 1)"],
+            [14, "rgba(102, 13, 54, 0.09)"]
+          ]
         },
         "line-opacity": {"stops": [[12, 0], [12.5, 1]]},
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 0.5], [13, 1], [14, 4], [20, 20]]
+          "stops": [[12, 0.5], [13, 2], [14, 4], [20, 20]]
         }
       }
     },
@@ -629,11 +632,8 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color":  {
-          "base": 1,
-          "stops": [[1, "hsla(0, 0%, 18.33%, 0.9)"], [14, "hsla(0, 0%, 80%, 0.9)"]]
-        },
-        "line-width": {"base": 1.2, "stops": [[8, 1.5], [20, 17]]}
+        "line-width": {"base": 1.2, "stops": [[8, 1.5], [20, 17]]},
+        "line-color": "rgba(102, 13, 54, 0.3)"
       }
     },
     {
@@ -650,7 +650,10 @@
       "paint": {
         "line-color": {
           "base": 1,
-          "stops": [[1, "hsla(0, 0%, 18.33%, 0.9)"], [14, "hsla(0, 0%, 80%, 0.9)"]]
+          "stops": [
+            [1, "rgba(102, 13, 54, 0.6)"],
+            [14, "rgba(102, 13, 54, 0.6)"]
+          ]
         },
         "line-width": {
           "base": 1.2,
@@ -672,14 +675,11 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": {
-          "base": 1,
-          "stops": [[1, "hsla(0, 0%, 18.33%, 0.9)"], [14, "hsla(0, 0%, 80%, 0.9)"]]
-        },
         "line-width": {
           "base": 1.2,
           "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
-        }
+        },
+        "line-color": "rgba(102, 13, 54, 0.6)"
       }
     },
     {
@@ -715,7 +715,7 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": "#fc8",
+        "line-color": "#fff",
         "line-width": {
           "base": 1.2,
           "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
@@ -752,7 +752,7 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": "#ffa",
+        "line-color": "#fff",
         "line-width": {
           "base": 1.2,
           "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
@@ -788,7 +788,7 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": "#fcfcfc",
+        "line-color": "#fff",
         "line-width": {"base": 1.2, "stops": [[6.5, 0], [8, 0.5], [20, 13]]}
       }
     },
@@ -804,7 +804,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#f0f0f0",
+        "line-color": "#fff",
         "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
       }
     },
@@ -822,10 +822,7 @@
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": {
-          "base": 1,
-          "stops": [[5, "hsl(26, 87%, 62%)"], [6, "#f0f0f0"]]
-        },
+        "line-color": "#fff",
         "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
       }
     },
@@ -926,7 +923,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.6)",
         "line-width": {
           "base": 1.2,
           "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
@@ -945,7 +942,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#cfcdca",
+        "line-color": "rgba(102, 13, 54, 0.3)",
         "line-width": {"base": 1.2, "stops": [[15, 1], [16, 4], [20, 11]]}
       }
     },
@@ -957,7 +954,7 @@
       "filter": ["all", ["==", "class", "link"], ["==", "brunnel", "bridge"]],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.17)",
         "line-width": {
           "base": 1.2,
           "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
@@ -1013,7 +1010,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.3)",
         "line-width": {"base": 1.2, "stops": [[8, 1.5], [20, 17]]}
       }
     },
@@ -1029,7 +1026,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.6)",
         "line-width": {
           "base": 1.2,
           "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
@@ -1049,7 +1046,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(102, 13, 54, 0.6)",
         "line-width": {
           "base": 1.2,
           "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
@@ -1086,7 +1083,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fc8",
+        "line-color": "#fff",
         "line-width": {
           "base": 1.2,
           "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
@@ -1117,7 +1114,7 @@
       "filter": ["all", ["==", "class", "link"], ["==", "brunnel", "bridge"]],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fea",
+        "line-color": "#fff",
         "line-width": {
           "base": 1.2,
           "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
@@ -1148,7 +1145,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fea",
+        "line-color": "#fff",
         "line-width": {"base": 1.2, "stops": [[6.5, 0], [7, 0.5], [20, 10]]}
       }
     },
@@ -1164,7 +1161,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fea",
+        "line-color": "#fff",
         "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
       }
     },
@@ -1181,7 +1178,7 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fc8",
+        "line-color": "#fff",
         "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
       }
     },
@@ -1246,11 +1243,8 @@
       "source-layer": "building",
       "minzoom": 13,
       "paint": {
-        "fill-color": "hsl(35, 8%, 79%)",
-        "fill-outline-color": {
-          "base": 1,
-          "stops": [[13, "hsla(35, 6%, 79%, 0.5)"], [14, "hsl(35, 6%, 79%)"]]
-        }
+        "fill-color": "rgba(247, 245, 246, 1)",
+        "fill-outline-color": "rgba(248, 249, 250, 1)"
       }
     },
     {
@@ -1263,9 +1257,10 @@
       "layout": {
         "text-field": "{housenumber}",
         "text-font": ["Berlin Type Regular"],
-        "text-size": 10
+        "text-size": 9,
+        "text-letter-spacing": 0.1
       },
-      "paint": {"text-color": "#666"}
+      "paint": {"text-color": "#333333"}
     },
     {
       "id": "boundary_3",
@@ -1276,7 +1271,7 @@
       "filter": ["all", ["in", "admin_level", 3, 4]],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#9e9cab",
+        "line-color": "#660D36",
         "line-dasharray": [5, 1],
         "line-width": {"base": 1, "stops": [[4, 0.4], [5, 1], [12, 1.8]]}
       }
@@ -1304,7 +1299,7 @@
       "filter": ["all", ["==", "admin_level", 2]],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": "hsl(248, 1%, 41%)",
+        "line-color": "#660D36",
         "line-opacity": {"base": 1, "stops": [[0, 0.4], [4, 1]]},
         "line-width": {"base": 1, "stops": [[3, 1], [5, 1.2], [12, 3]]}
       }
@@ -1314,18 +1309,22 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "waterway",
+      "maxzoom": 24,
       "filter": ["all", ["==", "$type", "LineString"]],
       "layout": {
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 5,
-        "text-size": 12,
-        "symbol-placement": "line"
+        "symbol-placement": "line",
+        "text-letter-spacing": 0.1,
+        "text-transform": "uppercase",
+        "text-size": 9
       },
       "paint": {
-        "text-color": "#5d60be",
-        "text-halo-color": "rgba(255,255,255,0.7)",
-        "text-halo-width": 1
+        "text-color": "rgba(28, 29, 78, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.97)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0.5
       }
     },
     {
@@ -1338,10 +1337,12 @@
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 5,
-        "text-size": 12
+        "text-size": 9,
+        "text-letter-spacing": 0.2,
+        "text-transform": "uppercase"
       },
       "paint": {
-        "text-color": "#5d60be",
+        "text-color": "rgba(38, 40, 133, 1)",
         "text-halo-color": "rgba(255,255,255,0.7)",
         "text-halo-width": 1
       }
@@ -1352,22 +1353,46 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 16,
-      "filter": ["all", ["==", "$type", "Point"], [">=", "rank", 20], ["!=", "class", ""]],
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [">=", "rank", 20],
+        ["!=", "class", ""],
+        ["!=", "class", "airport"]
+      ],
       "layout": {
         "icon-image": "{class}_11",
         "text-anchor": "top",
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 2],
-        "text-size": 12
+        "text-offset": [0, 1.2],
+        "text-size": 8,
+        "visibility": "none"
       },
       "paint": {
-        "text-color": "#666",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1
+        "text-halo-width": 1,
+        "text-color": "#333333"
       }
+    },
+    {
+      "id": "poi_airport",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "aeroway",
+      "filter": ["all", ["in", "aerodrome", "international", "regional"]],
+      "layout": {
+        "icon-image": "airport_11",
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Berlin Type Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 1.2],
+        "text-size": 8
+      },
+      "paint": {"text-color": "#ff0"}
     },
     {
       "id": "poi_z15",
@@ -1379,7 +1404,8 @@
         "all",
         ["==", "$type", "Point"],
         [">=", "rank", 13],
-        ["<", "rank", 20]
+        ["<", "rank", 20],
+        ["!=", "class", "airport"]
       ],
       "layout": {
         "icon-image": "{class}_11",
@@ -1387,8 +1413,8 @@
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 2],
-        "text-size": 12
+        "text-offset": [0, 1.2],
+        "text-size": 10
       },
       "paint": {
         "text-color": "#666",
@@ -1398,17 +1424,73 @@
       }
     },
     {
-      "id": "poi_z12_tram",
+      "id": "poi_z12_bvg",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 12,
+      "maxzoom": 16,
       "filter": [
         "all",
         ["==", "$type", "Point"],
         [">=", "rank", 1],
         ["<", "rank", 13],
-        ["in", "class", "railway_light", "railway_metro", "sbahn", "railway"]
+        ["in", "class", "railway_metro", "sbahn", "railway"]
+      ],
+      "layout": {"icon-image": "{class}_11", "icon-size": 0.7}
+    },
+    {
+      "id": "poi_z12_tram",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [">=", "rank", 1],
+        ["<", "rank", 13],
+        ["in", "class", "railway_light"]
+      ],
+      "layout": {"icon-image": "{class}_11", "icon-size": 0.7}
+    },
+    {
+      "id": "poi_z12_bvg_bus",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [">=", "rank", 1],
+        ["<", "rank", 13],
+        ["in", "class", "bus"]
+      ],
+      "layout": {"icon-image": "{class}_11", "text-size": 15, "icon-size": 0.8}
+    },
+    {
+      "id": "poi_z15_bvg",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [">=", "rank", 1],
+        ["<", "rank", 13],
+        [
+          "in",
+          "class",
+          "railway_light",
+          "railway_metro",
+          "sbahn",
+          "railway",
+          "bus"
+        ]
       ],
       "layout": {
         "icon-image": "{class}_11",
@@ -1416,14 +1498,16 @@
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 2],
-        "text-size": 12
+        "text-offset": [0, 1.2],
+        "text-size": 8,
+        "text-letter-spacing": 0.15,
+        "text-transform": "uppercase"
       },
       "paint": {
-        "text-color": "#666",
+        "text-color": "#333333",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1
+        "text-halo-width": 1.5
       }
     },
     {
@@ -1436,7 +1520,13 @@
         "all",
         ["==", "$type", "Point"],
         [">=", "rank", 1],
-        ["<", "rank", 13]
+        ["<", "rank", 13],
+        ["!=", "class", "airport"],
+        ["!=", "class", "railway_light"],
+        ["!=", "class", "railway_metro"],
+        ["!=", "class", "sbahn"],
+        ["!=", "class", "bus"],
+        ["!=", "class", "railway"]
       ],
       "layout": {
         "icon-image": "{class}_11",
@@ -1444,36 +1534,21 @@
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 2],
-        "text-size": 12
+        "text-offset": [0, 1.2],
+        "text-size": 9,
+        "symbol-spacing": 400,
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "text-padding": 4,
+        "text-letter-spacing": 0.15,
+        "text-transform": "uppercase",
+        "visibility": "visible"
       },
       "paint": {
-        "text-color": "#666",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1
-      }
-    },
-    {
-      "id": "poi_transit",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "filter": ["all", ["in", "class", "airport"]],
-      "layout": {
-        "icon-image": "{class}_11",
-        "text-anchor": "left",
-        "text-field": "{name_en}",
-        "text-font": ["Berlin Type Regular"],
-        "text-max-width": 9,
-        "text-offset": [2, 0],
-        "text-size": 12
-      },
-      "paint": {
-        "text-color": "#4898ff",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 1
+        "text-halo-width": 1,
+        "text-color": "#333333"
       }
     },
     {
@@ -1487,13 +1562,16 @@
         "text-anchor": "center",
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
-        "text-offset": [0, 0.10],
-        "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]}
+        "text-offset": [0, 0.1],
+        "text-size": 9,
+        "text-letter-spacing": 0.2,
+        "text-transform": "uppercase"
       },
       "paint": {
-        "text-color": "#765",
+        "text-color": "#333333",
         "text-halo-blur": 0.5,
-        "text-halo-width": 1
+        "text-halo-width": 1.5,
+        "text-halo-color": "rgba(255, 255, 255, 0.81)"
       }
     },
     {
@@ -1502,6 +1580,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation_name",
       "minzoom": 7,
+      "maxzoom": 24,
       "filter": ["all", ["<=", "ref_length", 6]],
       "layout": {
         "icon-image": "default_{ref_length}",
@@ -1513,7 +1592,8 @@
         "text-offset": [0, 0.05],
         "text-rotation-alignment": "viewport",
         "text-size": 10,
-        "icon-size": 0.8
+        "icon-size": 0.8,
+        "visibility": "none"
       }
     },
     {
@@ -1526,15 +1606,15 @@
         ["in", "class", "hamlet", "island", "islet", "neighbourhood", "suburb"]
       ],
       "layout": {
-        "text-field": "{name_en}",
+        "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-letter-spacing": 0.1,
         "text-max-width": 9,
-        "text-size": {"base": 1.2, "stops": [[12, 10], [15, 14]]},
+        "text-size": 10,
         "text-transform": "uppercase"
       },
       "paint": {
-        "text-color": "#633",
+        "text-color": "#333",
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.2
       }
@@ -1546,10 +1626,11 @@
       "source-layer": "place",
       "filter": ["all", ["==", "class", "village"]],
       "layout": {
-        "text-field": "{name_en}",
+        "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
+        "text-transform": "uppercase",
         "text-max-width": 8,
-        "text-size": {"base": 1.2, "stops": [[10, 12], [15, 22]]}
+        "text-size": 10
       },
       "paint": {
         "text-color": "#333",
@@ -1566,11 +1647,14 @@
       "layout": {
         "icon-image": {"base": 1, "stops": [[0, "dot_9"], [8, ""]]},
         "text-anchor": "bottom",
-        "text-field": "{name_en}",
+        "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
+        "text-transform": "uppercase",
         "text-max-width": 8,
         "text-offset": [0, 0],
-        "text-size": {"base": 1.2, "stops": [[7, 12], [11, 16]]}
+        "text-size": 8,
+        "text-letter-spacing": 0.15,
+        "text-radial-offset": 1
       },
       "paint": {
         "text-color": "#333",
@@ -1588,13 +1672,20 @@
       "layout": {
         "icon-image": {"base": 1, "stops": [[0, "dot_9"], [8, ""]]},
         "text-anchor": "bottom",
-        "text-field": "{name_en}",
-        "text-font": ["Berlin Type Regular"],
+        "text-field": "{name}",
+        "text-font": ["Berlin Type Bold"],
+        "text-transform": "uppercase",
         "text-max-width": 8,
         "text-offset": [0, 0],
-        "text-size": {"base": 1.2, "stops": [[7, 14], [11, 24]]},
+        "text-size": 10,
         "icon-allow-overlap": true,
-        "icon-optional": false
+        "icon-optional": false,
+        "text-letter-spacing": 0.2,
+        "text-padding": 5,
+        "icon-text-fit": "none",
+        "icon-padding": 2,
+        "symbol-spacing": 250,
+        "text-radial-offset": 0.8
       },
       "paint": {
         "text-color": "#333",
@@ -1610,13 +1701,14 @@
       "maxzoom": 6,
       "filter": ["all", ["==", "class", "state"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Berlin Type Regular"],
-        "text-size": {"stops": [[4, 11], [6, 15]]},
-        "text-transform": "uppercase"
+        "text-field": "{name}",
+        "text-font": ["Berlin Type Bold"],
+        "text-size": 10,
+        "text-transform": "uppercase",
+        "text-letter-spacing": 0.2
       },
       "paint": {
-        "text-color": "#633",
+        "text-color": "#333",
         "text-halo-color": "rgba(255,255,255,0.7)",
         "text-halo-width": 1
       }
@@ -1628,14 +1720,14 @@
       "source-layer": "place",
       "filter": ["all", [">=", "rank", 3], ["==", "class", "country"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Berlin Type Regular"],
+        "text-field": "{name}",
+        "text-font": ["Berlin Type Bold"],
         "text-max-width": 6.25,
-        "text-size": {"stops": [[3, 11], [7, 17]]},
-        "text-transform": "none"
+        "text-size": 12,
+        "text-transform": "uppercase"
       },
       "paint": {
-        "text-color": "#334",
+        "text-color": "#333",
         "text-halo-blur": 1,
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1
@@ -1648,14 +1740,14 @@
       "source-layer": "place",
       "filter": ["all", ["==", "rank", 2], ["==", "class", "country"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Berlin Type Regular"],
+        "text-field": "{name}",
+        "text-font": ["Berlin Type Bold"],
         "text-max-width": 6.25,
-        "text-size": {"stops": [[2, 11], [5, 17]]},
-        "text-transform": "none"
+        "text-size": 12,
+        "text-transform": "uppercase"
       },
       "paint": {
-        "text-color": "#334",
+        "text-color": "#333",
         "text-halo-blur": 1,
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1
@@ -1668,14 +1760,14 @@
       "source-layer": "place",
       "filter": ["all", ["==", "rank", 1], ["==", "class", "country"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Berlin Type Regular"],
+        "text-field": "{name}",
+        "text-font": ["Berlin Type Bold"],
         "text-max-width": 6.25,
-        "text-size": {"stops": [[1, 11], [4, 17]]},
-        "text-transform": "none"
+        "text-size": 12,
+        "text-transform": "uppercase"
       },
       "paint": {
-        "text-color": "#334",
+        "text-color": "#333",
         "text-halo-blur": 1,
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1
@@ -1689,18 +1781,18 @@
       "maxzoom": 1,
       "filter": ["all", ["==", "class", "continent"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Berlin Type Regular"],
-        "text-size": 13,
+        "text-field": "{name}",
+        "text-font": ["Berlin Type Bold"],
+        "text-size": 12,
         "text-transform": "uppercase",
         "text-justify": "center"
       },
       "paint": {
-        "text-color": "#633",
+        "text-color": "#333",
         "text-halo-color": "rgba(255,255,255,0.7)",
         "text-halo-width": 1
       }
     }
   ],
-  "id": "osm-liberty"
+  "id": "culturemap"
 }
