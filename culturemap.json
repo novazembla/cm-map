@@ -1260,7 +1260,7 @@
         "text-size": 9,
         "text-letter-spacing": 0.1
       },
-      "paint": {"text-color": "#333333"}
+      "paint": {"text-color": "#999"}
     },
     {
       "id": "boundary_3",
@@ -1338,13 +1338,15 @@
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 5,
         "text-size": 9,
-        "text-letter-spacing": 0.2,
+        "text-padding": 4,
+        "text-letter-spacing": 0.15,
         "text-transform": "uppercase"
       },
       "paint": {
-        "text-color": "rgba(38, 40, 133, 1)",
-        "text-halo-color": "rgba(255,255,255,0.7)",
-        "text-halo-width": 1
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1,
+        "text-color": "#333333"
       }
     },
     {
@@ -1367,8 +1369,14 @@
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
         "text-offset": [0, 1.2],
-        "text-size": 8,
-        "visibility": "none"
+        "text-size": 9,
+        "symbol-spacing": 400,
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "text-padding": 4,
+        "text-letter-spacing": 0.15,
+        "text-transform": "uppercase",
+        "visibility": "visible"
       },
       "paint": {
         "text-halo-blur": 0.5,
@@ -1384,15 +1392,27 @@
       "source-layer": "aeroway",
       "filter": ["all", ["in", "aerodrome", "international", "regional"]],
       "layout": {
-        "icon-image": "airport_11",
+        "icon-image": "{class}_11",
         "text-anchor": "top",
         "text-field": "{name}",
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
         "text-offset": [0, 1.2],
-        "text-size": 8
+        "text-size": 9,
+        "symbol-spacing": 400,
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "text-padding": 4,
+        "text-letter-spacing": 0.15,
+        "text-transform": "uppercase",
+        "visibility": "visible"
       },
-      "paint": {"text-color": "#ff0"}
+      "paint": {
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1,
+        "text-color": "#333333"
+      }
     },
     {
       "id": "poi_z15",
@@ -1414,13 +1434,20 @@
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
         "text-offset": [0, 1.2],
-        "text-size": 10
+        "text-size": 9,
+        "symbol-spacing": 400,
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "text-padding": 4,
+        "text-letter-spacing": 0.15,
+        "text-transform": "uppercase",
+        "visibility": "visible"
       },
       "paint": {
-        "text-color": "#666",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1
+        "text-halo-width": 1,
+        "text-color": "#333333"
       }
     },
     {
@@ -1499,15 +1526,20 @@
         "text-font": ["Berlin Type Regular"],
         "text-max-width": 9,
         "text-offset": [0, 1.2],
-        "text-size": 8,
+        "text-size": 9,
+        "symbol-spacing": 400,
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "text-padding": 4,
         "text-letter-spacing": 0.15,
-        "text-transform": "uppercase"
+        "text-transform": "uppercase",
+        "visibility": "visible"
       },
       "paint": {
-        "text-color": "#333333",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1.5
+        "text-halo-width": 1,
+        "text-color": "#333333"
       }
     },
     {
