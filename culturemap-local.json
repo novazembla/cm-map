@@ -9,11 +9,11 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://map.bzl.hs-example.de/berlin/metadata.json"
+      "url": "http://culturemapmap.eu.ngrok.io/berlin/metadata.json"
     }
   },
-  "sprite": "https://map.bzl.hs-example.de/sprites/berlin",
-  "glyphs": "https://map.bzl.hs-example.de/fonts/{fontstack}/{range}.pbf",
+  "sprite": "http://culturemapmap.eu.ngrok.io/sprites/berlin",
+  "glyphs": "http://culturemapmap.eu.ngrok.io/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",

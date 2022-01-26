@@ -76,7 +76,7 @@ First configure `config/config-berlin.json` to have the correct tile url
 then build the tiles
 
 ```
-./bin/tilemaker --input data/yourdata.osm.pbf --output berlin --process ./config/process-berlin.lua --config ./config/config-berlin.json
+[./bin/]tilemaker --input data/yourdata.osm.pbf --output berlin --process ./config/process-berlin.lua --config ./config/config-berlin.json
 ```
 
 Finally you'll have to edit, there is a bug in the code open `berlin/metadata.json` and remove the second `,"bounds":[0.0,0.0,0.0,0.0]`
@@ -91,7 +91,9 @@ Finally you'll have to edit, there is a bug in the code open `berlin/metadata.js
 
 ./bin/tilemaker --input data/brandenburg-latest.osm.pbf --output berlin --process ./config/process-berlin.lua --config ./config/config-berlin.json
 
+OR
 
+tilemaker --input data/brandenburg-latest.osm.pbf --output berlin --process ./config/process-berlin.lua --config ./config/config-berlin.json
 
 
 

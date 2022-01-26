@@ -62,7 +62,6 @@ function node_function(node)
 	local amenity = node:Find("amenity")
 	local office = node:Find("office")
 	local building = node:Find("building")
-	local shop = node:Find("shop")
 	local craft = node:Find("craft")
 	
 
@@ -217,9 +216,13 @@ function node_function(node)
 		return
 	end
 
+	
+
 	-- Write 'poi'
 	local rank, class, subclass = GetPOIRank(node)
-	if rank then WritePOI(node,class,subclass,rank) end
+	if rank then 
+		WritePOI(node,class,subclass,rank)
+	end
 
 	-- Write 'mountain_peak' and 'water_name'
 	local natural = node:Find("natural")
@@ -333,6 +336,7 @@ function way_function(way)
 	local natural  = way:Find("natural")
 	local historic = way:Find("historic")
 	local landuse  = way:Find("landuse")
+	local shop  	 = way:Find("shop")
 	local leisure  = way:Find("leisure")
 	local amenity  = way:Find("amenity")
 	local aeroway  = way:Find("aeroway")
@@ -640,10 +644,18 @@ function way_function(way)
 
 	-- POIs ('poi' and 'poi_detail')
 	local rank, class, subclass = GetPOIRank(way)
-	if rank then WritePOI(way,class,subclass,rank); return end
+	if rank then 
+		WritePOI(way,class,subclass,rank); 
+	return end
 
-	-- Catch-all
-	if (building~="" or write_name) and way:Holds("name") then
+	-- if way:Holds("shop") and way:Holds("name")  then 
+	-- 	print("write shop", way:Find("name"))
+	-- end
+
+	-- Catch-all to add names
+	-- filter for shops and restaurants
+
+	if (building~="" or write_name) and way:Holds("name") and not way:Holds("shop") and amenity ~= "restaurant" and landuse ~= "commercial" and landuse ~= "industrial" and building ~= "retail" and building ~= "industrial" and building ~= "office" and building~="commercial" and building ~= "yes" then
 		way:LayerAsCentroid("poi_detail")
 		SetNameAttributes(way)
 		if write_name then rank=6 else rank=25 end
@@ -721,6 +733,10 @@ end
 function GetPOIRank(obj)
 	local k,list,v,class,rank
 
+	-- Catch-all for shops, make sure they never get a POI Rank
+	local shop = obj:Find("shop")
+	if shop~="" then return nil, nil, nil end
+
 	-- Can we find the tag?
 	for k,list in pairs(poiTags) do
 		if list[obj:Find(k)] then
@@ -730,10 +746,6 @@ function GetPOIRank(obj)
 			return rank, class, v
 		end
 	end
-
-	-- Catch-all for shops
-	-- local shop = obj:Find("shop")
-	-- if shop~="" then return poiClassRanks['shop'], "shop", shop end
 
 	-- Nothing found
 	return nil,nil,nil
