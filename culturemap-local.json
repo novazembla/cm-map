@@ -9,11 +9,11 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "http://culturemapmap.eu.ngrok.io/berlin/metadata.json"
+      "url": "http://localhost:4590/berlin/metadata.json"
     }
   },
-  "sprite": "http://culturemapmap.eu.ngrok.io/sprites/berlin",
-  "glyphs": "http://culturemapmap.eu.ngrok.io/fonts/{fontstack}/{range}.pbf",
+  "sprite": "http://localhost:4590/sprites/berlin",
+  "glyphs": "http://localhost:4590/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",

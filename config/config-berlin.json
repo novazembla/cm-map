@@ -30,7 +30,9 @@
 		"park":              { "minzoom": 11, "maxzoom": 14 },
 		"landuse":           { "minzoom":  4, "maxzoom": 14, "simplify_below": 13, "simplify_level": 0.0003, "simplify_ratio": 2 },
 		"landcover":         { "minzoom":  0, "maxzoom": 14, "simplify_below": 13, "simplify_level": 0.0003, "simplify_ratio": 2 },
-		"mountain_peak":     { "minzoom": 11, "maxzoom": 14 }
+		"mountain_peak":     { "minzoom": 11, "maxzoom": 14 },
+		"ocean":             { "minzoom": 0, "maxzoom": 14, "source": "data/coastline/water_polygons.shp", "filter_below": 12, "filter_area": 1, "simplify_below": 13, "simplify_level": 0.0001, "simplify_ratio": 2, "write_to": "water" },
+		"urban_areas":       { "minzoom": 2, "maxzoom": 10, "source": "data/landcover/ne_10m_urban_areas.shp", "source_columns": ["featurecla"], "simplify_below": 8, "simplify_level": 0.0003, "simplify_ratio": 2, "write_to": "landcover" }
 	},
 	"settings": {
 		"minzoom": 0,
