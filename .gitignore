@@ -4,3 +4,5 @@ bin/*
 !bin/.keep
 berlin/*
 *.log
+# staged subset for the map server image (docker/stage.py)
+docker/subset/

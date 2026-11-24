@@ -1,0 +1,13 @@
+# Local map server: `docker compose up -d` -> http://127.0.0.1:4590/culturemap.json
+# Serves this repo read-only; see README.md ("Local map server").
+name: cm-map
+services:
+  map:
+    image: cm-map:server
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: server
+    ports: ["127.0.0.1:4590:80"]
+    volumes: [".:/srv/map:ro"]
+    restart: unless-stopped
